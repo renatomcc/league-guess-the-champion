@@ -1,6 +1,8 @@
-import { Dimensions, FlatList, FlatListProps, ListRenderItem, StyleSheet } from "react-native";
+import { Dimensions, FlatList, FlatListProps } from "react-native";
 import styled from "styled-components/native";
 import { IChampion } from "../../../App";
+
+
 
 export const Container = styled.View`
   flex: 1;
@@ -8,7 +10,7 @@ export const Container = styled.View`
   z-index: 1;
 `;
 
-const d = Dimensions.get("window")
+const d = Dimensions.get("window");
 
 export const BackgroundImage = styled.ImageBackground`
   flex: 1;
@@ -75,11 +77,26 @@ export const Label = styled.Text`
   text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
 `;
 
-export const ChampionList = styled(FlatList as new (props: FlatListProps<IChampion>)=> FlatList<IChampion>)`
+export const ChampionList = styled(
+  FlatList as new (props: FlatListProps<IChampion>) => FlatList<IChampion>
+)`
   gap: 5px;
-`
+`;
 
-export const StyledButton = styled.Button`
-  background-color: 'black';
+export const StyledButton = styled.TouchableOpacity`
+  width: 200px;
+  height: 50px;
   font-size: 30px;
-`
+  justify-content: center;
+  border-radius: 10px;
+  border: 1.5px solid rgba(0, 0, 0, 0.4);
+  margin: 15px;
+`;
+
+export const ButtonText = styled.Text`
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+`;

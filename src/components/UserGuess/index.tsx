@@ -5,19 +5,24 @@ import { currentChampion } from "../../screens/Home";
 import { useEffect, useState } from "react";
 import { Container, ChampionImage, LabelCard, CenteredText } from "./style";
 import { IChampion } from "../../../App";
+import { useFonts } from "expo-font";
 
 interface IProps {
   Champion: IChampion;
 }
 
 export default function Guess(props: IProps) {
+  const [fontsLoaded] = useFonts({
+    FrizItalic: require("../../../assets/fonts/Friz-Italic.ttf"),
+    FrizRegular: require("../../../assets/fonts/Friz-Regular.ttf"),
+    FrizBold: require("../../../assets/fonts/Friz-Bold.otf"),
+  });
   const [emojiHint, setEmojiHint] = useState("");
   const roles = props.Champion.roles.join(",\n");
   const tags = props.Champion.tags.join(",\n");
   const species = props.Champion.specie.join(",\n");
   const range = props.Champion.range_type.join(",\n");
   const regions = props.Champion.regions.join(",\n");
-
 
   useEffect(() => {
     if (props.Champion.release_year > currentChampion.release_year)
@@ -26,6 +31,7 @@ export default function Guess(props: IProps) {
       setEmojiHint("⬆️");
   }, []);
 
+  if (!fontsLoaded) return null;
   return (
     <Container>
       <ChampionImage source={{ uri: `${props.Champion.image.sprite}` }} />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, FlatList, Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import {
   Container,
   BackgroundImage,
@@ -10,12 +10,14 @@ import {
   GuessedList,
   LabelsList,
   Label,
-  ChampionList,
-  StyledButton
+  StyledButton,
+  ButtonText,
 } from "./styles";
 import { IChampion } from "../../../App";
 import { champions } from "../../config/data";
 import { renderGuessedChampions } from "../../components/UserGuess";
+import { useFonts } from "expo-font";
+import { LinearGradient } from "expo-linear-gradient";
 
 export var currentChampion: IChampion =
   champions[Math.floor(Math.random() * 161)];
@@ -28,6 +30,10 @@ export function Home() {
     uri: "https://mfiles.alphacoders.com/609/609807.jpg",
   };
   const [userGuessedRight, setUserGuessedRight] = useState(false);
+  const [fontsLoaded] = useFonts({
+    FrizItalic: require("../../../assets/fonts/Friz-Italic.ttf"),
+    FrizRegular: require("../../../assets/fonts/Friz-Regular.ttf"),
+  });
 
   function handleNewChampion() {
     setUserGuessedRight(false);
@@ -76,14 +82,29 @@ export function Home() {
     setChampionsOptions([]);
   }
 
+  if (!fontsLoaded) return null;
+
   return (
     <Container>
       <BackgroundImage resizeMode="cover" source={backGroundImage}>
-        <StyledButton title="New Champion" onPress={handleNewChampion} />
+        <StyledButton onPress={handleNewChampion}>
+          <LinearGradient
+            colors={["#d08e1a", "#88370c"]}
+            style={{ flex: 1, borderRadius: 10, justifyContent: "center" }}
+          >
+            <ButtonText style={{ fontFamily: "FrizRegular" }}>
+              NEW CHAMPION
+            </ButtonText>
+          </LinearGradient>
+        </StyledButton>
 
         {!userGuessedRight && (
           <InputArea>
-            <InputField onChangeText={handleChangeText} value={input} />
+            <InputField
+              onChangeText={handleChangeText}
+              value={input}
+              style={{ fontFamily: "FrizItalic" }}
+            />
 
             <FlatList
               data={championsOptions}
