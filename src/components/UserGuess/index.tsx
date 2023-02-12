@@ -1,11 +1,19 @@
 import React from "react";
-import { FlatList, ListRenderItem } from "react-native";
+import { ListRenderItem } from "react-native";
 import { getGuessColor } from "../../config/getGuessColor";
 import { currentChampion } from "../../screens/Home";
 import { useEffect, useState } from "react";
-import { Container, ChampionImage, LabelCard, CenteredText } from "./style";
+import {
+  Container,
+  ChampionImage,
+  LabelCard,
+  CenteredText,
+  spin,
+  AnimatedLabelCard,
+} from "./style";
 import { IChampion } from "../../../App";
 import { useFonts } from "expo-font";
+import Animated from "react-native-reanimated";
 
 interface IProps {
   Champion: IChampion;
@@ -35,50 +43,58 @@ export default function Guess(props: IProps) {
   return (
     <Container>
       <ChampionImage source={{ uri: `${props.Champion.image.sprite}` }} />
-      <LabelCard
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(currentChampion.roles, props.Champion.roles)}
       >
         <CenteredText> {roles} </CenteredText>
-      </LabelCard>
+      </AnimatedLabelCard>
 
-      <LabelCard
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(currentChampion.tags, props.Champion.tags)}
       >
         <CenteredText> {tags} </CenteredText>
-      </LabelCard>
+      </AnimatedLabelCard>
 
-      <LabelCard
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(currentChampion.genre, props.Champion.genre)}
       >
         <CenteredText> {props.Champion.genre} </CenteredText>
-      </LabelCard>
-      <LabelCard
+      </AnimatedLabelCard>
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(currentChampion.specie, props.Champion.specie)}
       >
         <CenteredText> {species} </CenteredText>
-      </LabelCard>
+      </AnimatedLabelCard>
 
-      <LabelCard
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(currentChampion.resource, props.Champion.resource)}
       >
         <CenteredText> {props.Champion.resource} </CenteredText>
-      </LabelCard>
-      <LabelCard
+      </AnimatedLabelCard>
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(
           currentChampion.range_type,
           props.Champion.range_type
         )}
       >
         <CenteredText> {range} </CenteredText>
-      </LabelCard>
+      </AnimatedLabelCard>
 
-      <LabelCard
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(currentChampion.regions, props.Champion.regions)}
       >
         <CenteredText> {regions} </CenteredText>
-      </LabelCard>
+      </AnimatedLabelCard>
 
-      <LabelCard
+      <AnimatedLabelCard
+        entering={spin}
         color={getGuessColor(
           currentChampion.release_year,
           props.Champion.release_year
@@ -87,7 +103,7 @@ export default function Guess(props: IProps) {
         <CenteredText>
           {props.Champion.release_year} {emojiHint}
         </CenteredText>
-      </LabelCard>
+      </AnimatedLabelCard>
     </Container>
   );
 }
