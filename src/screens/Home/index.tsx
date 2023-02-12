@@ -108,12 +108,9 @@ export function Home() {
 
             <FlatList
               data={championsOptions}
-              keyExtractor={(item, index) => index.toString()}
+              keyExtractor={(champion: IChampion) => champion.id}
               renderItem={({ item }) => (
-                <InputOption
-                  onPress={() => handleGuess(item.name)}
-                  key={item.id}
-                >
+                <InputOption onPress={() => handleGuess(item.name)}>
                   <ChampionImage source={{ uri: `${item.image.sprite}` }} />
                   <Text> {item.name} </Text>
                 </InputOption>

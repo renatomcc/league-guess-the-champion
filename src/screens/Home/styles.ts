@@ -56,7 +56,7 @@ export const ChampionImage = styled.Image`
 `;
 
 export const GuessedList = styled.ScrollView`
-  margin-top: 150px;
+  margin-top: 100px;
 `;
 
 export const LabelsList = styled.View`
