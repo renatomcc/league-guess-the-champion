@@ -1,19 +1,15 @@
-import React from "react";
-import { ListRenderItem } from "react-native";
 import { getGuessColor } from "../../config/getGuessColor";
 import { currentChampion } from "../../screens/Home";
 import { useEffect, useState } from "react";
 import {
   Container,
   ChampionImage,
-  LabelCard,
   CenteredText,
   spin,
   AnimatedLabelCard,
 } from "./style";
 import { IChampion } from "../../../App";
 import { useFonts } from "expo-font";
-import Animated from "react-native-reanimated";
 
 interface IProps {
   Champion: IChampion;
@@ -108,9 +104,3 @@ export default function Guess(props: IProps) {
   );
 }
 
-export const GuessedChampion = ({ data }: { data: IChampion }) => (
-  <Guess Champion={data} />
-);
-export const renderGuessedChampions: ListRenderItem<IChampion> = ({ item }) => (
-  <GuessedChampion data={item} />
-);

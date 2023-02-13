@@ -29,19 +29,6 @@ export const CenteredList = styled.FlatList`
   text-align: center;
 `;
 
-export const LabelCard = styled.View<Props>`
-  width: 95px;
-  height: 95px;
-  align-items: center;
-  justify-content: center;
-  border-top-width: 2px;
-  border-bottom-width: 2px;
-  border-right: 1px;
-  border-left: 1px;
-  border: solid black;
-  background-color: ${(props) => props.color};
-`;
-
 export const spin = new Keyframe({
   0: {
     transform: [{ rotateY: "-90deg" }],

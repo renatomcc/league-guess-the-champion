@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, ListRenderItem, Text, View } from "react-native";
 import {
   Container,
   BackgroundImage,
@@ -12,15 +12,26 @@ import {
   Label,
   StyledButton,
   ButtonText,
+  ChampionFullImage,
+  WinningScreen,
+  Title,
+  TitleWrap
 } from "./styles";
 import { IChampion } from "../../../App";
 import { champions } from "../../config/data";
-import { renderGuessedChampions } from "../../components/UserGuess";
+import Guess from "../../components/UserGuess";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 
 export var currentChampion: IChampion =
   champions[Math.floor(Math.random() * 161)];
+
+const GuessedChampion = ({ data }: { data: IChampion }) => (
+  <Guess Champion={data} />
+);
+const renderGuessedChampions: ListRenderItem<IChampion> = ({ item }) => (
+  <GuessedChampion data={item} />
+);
 
 export function Home() {
   const [input, setInput] = useState("");
@@ -33,12 +44,14 @@ export function Home() {
   const [fontsLoaded] = useFonts({
     FrizItalic: require("../../../assets/fonts/Friz-Italic.ttf"),
     FrizRegular: require("../../../assets/fonts/Friz-Regular.ttf"),
+    FrizBold: require("../../../assets/fonts/Friz-Bold.otf"),
   });
 
   function handleNewChampion() {
     setUserGuessedRight(false);
     currentChampion = champions[Math.floor(Math.random() * 161)];
     setGuessedChampions([]);
+    console.log(currentChampion.name);
   }
 
   function handleChangeText(enteredText: string) {
@@ -73,6 +86,7 @@ export function Home() {
         if (currentGuess === currentChampion) {
           alert("Acertou!");
           setUserGuessedRight(true);
+          setGuessedChampions([]);
         }
       } else alert("Tente um novo campeão");
     } else {
@@ -98,7 +112,7 @@ export function Home() {
           </LinearGradient>
         </StyledButton>
 
-        {!userGuessedRight && (
+        {!userGuessedRight ? (
           <InputArea>
             <InputField
               onChangeText={handleChangeText}
@@ -117,6 +131,17 @@ export function Home() {
               )}
             />
           </InputArea>
+        ) : (
+          <WinningScreen>
+            <ChampionFullImage
+              source={{ uri: `${currentChampion.image.full}` }}
+            />
+            <TitleWrap>
+              <Title style={{ fontFamily: "FrizRegular" }}>
+                {currentChampion.name}
+              </Title>
+            </TitleWrap>
+          </WinningScreen>
         )}
 
         <GuessedList horizontal={true}>

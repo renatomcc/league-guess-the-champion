@@ -2,12 +2,12 @@ import { Dimensions, FlatList, FlatListProps } from "react-native";
 import styled from "styled-components/native";
 import { IChampion } from "../../../App";
 
-
-
 export const Container = styled.View`
   flex: 1;
   margin-top: 60px;
   z-index: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 const d = Dimensions.get("window");
@@ -26,7 +26,7 @@ export const InputArea = styled.TouchableOpacity`
   position: absolute;
   flex: 1;
   z-index: 3;
-  top: 90px;
+  top: 130px;
 `;
 
 export const InputField = styled.TextInput`
@@ -39,8 +39,6 @@ export const InputField = styled.TextInput`
   font-size: 22px;
 `;
 
-export const OptionList = styled.FlatList``;
-
 export const InputOption = styled.Pressable`
   flex-direction: row;
   align-items: center;
@@ -50,13 +48,36 @@ export const InputOption = styled.Pressable`
   pointer-events: auto;
 `;
 
+export const WinningScreen = styled.View`
+  top: -20px;
+`;
+
+export const TitleWrap = styled.View`
+  bottom: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+export const Title = styled.Text`
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  text-shadow: 3px 1px 1px rgba(0, 0, 0, 0.4);
+`;
+
 export const ChampionImage = styled.Image`
   width: 50px;
   height: 50px;
 `;
 
+export const ChampionFullImage = styled.Image`
+  width: 250px;
+  height: 460px;
+`;
+
 export const GuessedList = styled.ScrollView`
-  margin-top: 100px;
+  position: absolute;
+  top: 200px;
+  z-index: 0;
 `;
 
 export const LabelsList = styled.View`
@@ -84,6 +105,8 @@ export const ChampionList = styled(
 `;
 
 export const StyledButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 30px;
   width: 200px;
   height: 50px;
   font-size: 30px;
