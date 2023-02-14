@@ -32,7 +32,6 @@ export const InputArea = styled.TouchableOpacity`
 export const InputField = styled.TextInput`
   padding: 10px 15px;
   width: 200px;
-  font-size: 22;
   border: 2px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   background-color: white;
@@ -71,7 +70,7 @@ export const ChampionImage = styled.Image`
 
 export const ChampionFullImage = styled.Image`
   width: 250px;
-  height: 460px;
+  height: 455px;
 `;
 
 export const GuessedList = styled.ScrollView`

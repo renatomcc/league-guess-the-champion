@@ -15,13 +15,14 @@ import {
   ChampionFullImage,
   WinningScreen,
   Title,
-  TitleWrap
+  TitleWrap,
 } from "./styles";
 import { IChampion } from "../../../App";
 import { champions } from "../../config/data";
 import Guess from "../../components/UserGuess";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
+import FastImage from 'react-native-fast-image'
 
 export var currentChampion: IChampion =
   champions[Math.floor(Math.random() * 161)];
@@ -134,7 +135,9 @@ export function Home() {
         ) : (
           <WinningScreen>
             <ChampionFullImage
-              source={{ uri: `${currentChampion.image.full}` }}
+              source={{
+                uri: `${currentChampion.image.full}`,
+              }}
             />
             <TitleWrap>
               <Title style={{ fontFamily: "FrizRegular" }}>
