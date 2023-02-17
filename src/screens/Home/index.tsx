@@ -16,6 +16,10 @@ import {
   WinningScreen,
   Title,
   TitleWrap,
+  TutorialView,
+  Square,
+  FlexView,
+  StyledText
 } from "./styles";
 import { IChampion } from "../../../App";
 import { champions } from "../../config/data";
@@ -111,6 +115,21 @@ export function Home() {
             </ButtonText>
           </LinearGradient>
         </StyledButton>
+
+        <TutorialView>
+          <FlexView>
+            <Square color="grey" />
+            <StyledText>Incorreto</StyledText>
+          </FlexView>
+          <FlexView>
+            <Square color="orange" />
+            <StyledText>Parcialmente Correto</StyledText>
+          </FlexView>
+          <FlexView>
+            <Square color="green" />
+            <StyledText>Correto</StyledText>
+          </FlexView>
+        </TutorialView>
 
         {!userGuessedRight ? (
           <InputArea>

@@ -1,6 +1,9 @@
-import { Dimensions, FlatList, FlatListProps } from "react-native";
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
-import { IChampion } from "../../../App";
+
+interface Props {
+  color: string;
+}
 
 export const Container = styled.View`
   flex: 1;
@@ -29,12 +32,12 @@ export const InputArea = styled.TouchableOpacity`
 `;
 
 export const InputField = styled.TextInput`
-  padding: 10px 15px;
+  padding: 5px 10px;
   width: 200px;
   border: 2px solid rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   background-color: white;
-  font-size: 22px;
+  font-size: 20px;
 `;
 
 export const InputOption = styled.Pressable`
@@ -98,14 +101,13 @@ export const Label = styled.Text`
 
 export const StyledButton = styled.TouchableOpacity`
   position: absolute;
-  top: 30px;
+  top: 45px;
   width: 200px;
-  height: 50px;
+  height: 49px;
   font-size: 30px;
   justify-content: center;
-  border-radius: 10px;
-  border: 1.5px solid rgba(0, 0, 0, 0.4);
-  margin: 15px;
+  border-radius: 13px;
+  border: 2px solid rgba(0, 0, 0, 0.4);
 `;
 
 export const ButtonText = styled.Text`
@@ -115,3 +117,30 @@ export const ButtonText = styled.Text`
   color: white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 `;
+
+export const TutorialView = styled.View`
+  width: 300px;
+  position: absolute;
+  top: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Square = styled.View<Props>`
+  width: 12px;
+  height: 12px;
+  background-color: ${(props) => props.color};
+  margin-right: 2px;
+  border: 1px solid black;
+`;
+
+export const FlexView = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledText = styled.Text`
+  font-weight: bold;
+`
