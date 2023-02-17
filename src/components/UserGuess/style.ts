@@ -12,13 +12,13 @@ export const Container = styled.View`
 `;
 
 export const ChampionImage = styled.Image`
-  width: 95px;
-  height: 95px;
+  width: 90px;
+  height: 90px;
 `;
 
 export const CenteredText = styled.Text`
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   color: white;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
 `;
@@ -39,8 +39,8 @@ export const spin = new Keyframe({
 });
 
 export const AnimatedLabelCard = styled(Animated.View)<Props>`
-  width: 95px;
-  height: 95px;
+  width: 90px;
+  height: 90px;
   align-items: center;
   justify-content: center;
   border-top-width: 2px;

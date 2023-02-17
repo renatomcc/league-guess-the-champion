@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "guess-the-league-champion",
+    "name": "Guess The Champion",
     "slug": "guess-the-league-champion",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,12 +19,19 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.guessTheChampion.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
       "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dc09cd3f-ffa8-4a30-93e0-3b28d0094186"
+      }
     }
   }
 }

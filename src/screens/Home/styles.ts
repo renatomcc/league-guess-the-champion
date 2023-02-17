@@ -4,7 +4,6 @@ import { IChampion } from "../../../App";
 
 export const Container = styled.View`
   flex: 1;
-  margin-top: 60px;
   z-index: 1;
   justify-content: flex-start;
   align-items: flex-start;
@@ -43,7 +42,6 @@ export const InputOption = styled.Pressable`
   align-items: center;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.4);
-  padding: 0px 3px;
   pointer-events: auto;
 `;
 
@@ -76,17 +74,18 @@ export const ChampionFullImage = styled.Image`
 export const GuessedList = styled.ScrollView`
   position: absolute;
   top: 200px;
+  left: 0px;
   z-index: 0;
 `;
 
 export const LabelsList = styled.View`
   flex-direction: row;
   margin: 5px 0px;
-  margin-left: 95px;
+  margin-left: 90px;
 `;
 
 export const Label = styled.Text`
-  width: 87.5px;
+  width: 83px;
   height: 25px;
   margin: 0px 3.5px;
   text-align: center;
@@ -95,12 +94,6 @@ export const Label = styled.Text`
   color: white;
   font-weight: bold;
   text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
-`;
-
-export const ChampionList = styled(
-  FlatList as new (props: FlatListProps<IChampion>) => FlatList<IChampion>
-)`
-  gap: 5px;
 `;
 
 export const StyledButton = styled.TouchableOpacity`

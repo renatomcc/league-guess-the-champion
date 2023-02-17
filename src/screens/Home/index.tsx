@@ -22,7 +22,6 @@ import { champions } from "../../config/data";
 import Guess from "../../components/UserGuess";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
-import FastImage from 'react-native-fast-image'
 
 export var currentChampion: IChampion =
   champions[Math.floor(Math.random() * 161)];
