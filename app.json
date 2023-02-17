@@ -2,36 +2,39 @@
   "expo": {
     "name": "Guess The Champion",
     "slug": "guess-the-league-champion",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "icon": "./assets/images/icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "splash": {
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/dc09cd3f-ffa8-4a30-93e0-3b28d0094186"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "package": "com.guessTheChampion.app",
-      "versionCode": 1,
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/images/icon.png"
     },
     "extra": {
       "eas": {
         "projectId": "dc09cd3f-ffa8-4a30-93e0-3b28d0094186"
       }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
