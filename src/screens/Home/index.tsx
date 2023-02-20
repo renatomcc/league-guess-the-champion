@@ -165,7 +165,7 @@ export function Home() {
           </WinningScreen>
         )}
 
-        <GuessedList horizontal={true}>
+        <GuessedList horizontal={true} style={{ height: 576 }}>
           <View>
             {guessedChampions.length > 0 && (
               <LabelsList>
@@ -179,13 +179,12 @@ export function Home() {
                 <Label>Lançamento</Label>
               </LabelsList>
             )}
-            <View style={{height: 540}}>
-              <FlatList
-                data={guessedChampions}
-                keyExtractor={(item: IChampion) => item.id}
-                renderItem={renderGuessedChampions}
-              />
-            </View>
+
+            <FlatList
+              data={guessedChampions}
+              keyExtractor={(item: IChampion) => item.id}
+              renderItem={renderGuessedChampions}
+            />
           </View>
         </GuessedList>
       </BackgroundImage>
