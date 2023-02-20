@@ -19,7 +19,7 @@ import {
   TutorialView,
   Square,
   FlexView,
-  StyledText
+  StyledText,
 } from "./styles";
 import { IChampion } from "../../../App";
 import { champions } from "../../config/data";
@@ -179,11 +179,13 @@ export function Home() {
                 <Label>Lançamento</Label>
               </LabelsList>
             )}
-            <FlatList
-              data={guessedChampions}
-              keyExtractor={(item: IChampion) => item.id}
-              renderItem={renderGuessedChampions}
-            />
+            <View style={{height: 540}}>
+              <FlatList
+                data={guessedChampions}
+                keyExtractor={(item: IChampion) => item.id}
+                renderItem={renderGuessedChampions}
+              />
+            </View>
           </View>
         </GuessedList>
       </BackgroundImage>

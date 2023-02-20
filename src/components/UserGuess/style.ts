@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
 import Animated, { Keyframe } from "react-native-reanimated";
 
-
 interface Props {
   color: any;
 }
@@ -50,4 +49,3 @@ export const AnimatedLabelCard = styled(Animated.View)<Props>`
   border: solid black;
   background-color: ${(props) => props.color};
 `;
-
