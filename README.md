@@ -3,6 +3,8 @@ This is a React Native app inspired by the browse game Pokedle (pokemon version 
 
 This app was created using React Native, Typescript and Styled Components.
 
+### Playstore link [here](https://play.google.com/store/apps/details?id=com.guessTheChampion.app&fbclid=IwAR3BxVZGdATWclsXFlIUKtRP8b8Z983bZndK6FgVaLjN3SZR1-uKZHHqlUg)
+
 ### Hints every guess
 In order to help you guess the champion correctly, everytime you guess a champion, the game will tell you if the correct champion has anything in commom with your guess.
 These informations are:
